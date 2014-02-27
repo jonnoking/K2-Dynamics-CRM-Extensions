@@ -1,0 +1,342 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using SourceCode.Services;
+using SourceCode.Services.ServiceContracts;
+using SourceCode.Services.DataContracts;
+using SourceCode.Workflow.Client;
+using System.Configuration;
+using System.ServiceModel.Activation;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using Microsoft.Xrm.Sdk.Client;
+using System.ServiceModel.Description;
+
+
+// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "K2DemoREST" in code, svc and config file together.
+[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+public class K2DemoREST : IK2DemoREST
+{
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public SourceCode.Services.DataContracts.WorklistItemCollection OpenWorklist(bool actDataField, bool actXmlField, bool piDataField, bool piXmlField)
+    {
+        ODataContext.Current.AddBoolean("actDataField", actDataField);
+        ODataContext.Current.AddBoolean("actXmlField", actXmlField);
+        ODataContext.Current.AddBoolean("piDataField", piDataField);
+        ODataContext.Current.AddBoolean("piXmlField", piXmlField);
+
+        try
+        {
+            using (var con = this.GetWorkflowClient())
+            {
+                var skip = ODataContext.Current.Skip;
+                var top = ODataContext.Current.Top == 0 ?
+                    10 :
+                    ODataContext.Current.Top;
+
+                if (skip == 0 && top == 0)
+                {
+                    return WorklistItemCollection.FromApi(con.OpenWorklist());
+                }
+                else
+                {
+                    var crit = new WorklistCriteria();
+                    crit.Count = (int)top;
+                    crit.StartIndex = (int)skip;
+
+                    return WorklistItemCollection.FromApi(con.OpenWorklist(crit));
+                }
+            }
+        }
+        catch (UnauthorizedAccessException) { throw; }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public SourceCode.Services.DataContracts.WorklistItemCollection SearchWorklistForDataField(string sDataFieldName, string sDataFieldValue, bool actDataField, bool actXmlField, bool piDataField, bool piXmlField)
+    {
+
+        ODataContext.Current.AddBoolean("actDataField", actDataField);
+        ODataContext.Current.AddBoolean("actXmlField", actXmlField);
+        ODataContext.Current.AddBoolean("piDataField", piDataField);
+        ODataContext.Current.AddBoolean("piXmlField", piXmlField);
+
+        try
+        {
+            using (var con = this.GetWorkflowClient())
+            {
+                var crit = new WorklistCriteria();
+
+                crit.AddFilterField(WCLogical.And, WCField.ProcessData, sDataFieldName, WCCompare.Equal, sDataFieldValue);
+                
+                return WorklistItemCollection.FromApi(con.OpenWorklist(crit));
+            }
+        }
+        catch (UnauthorizedAccessException) { throw; }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public string CRMChangeOwner(CRMEntityOwnership crmEntityOwnership)
+    {
+        OrganizationServiceProxy _serviceProxy;
+        IOrganizationService _service;
+        string res = "";
+
+        using (_serviceProxy = GetCRMConnection())
+        {
+            // This statement is required to enable early-bound type support.
+            _serviceProxy.ServiceConfiguration.CurrentServiceEndpoint.Behaviors.Add(new ProxyTypesBehavior());
+
+            _service = (IOrganizationService)_serviceProxy;
+
+            Microsoft.Crm.Sdk.Messages.AssignRequest req = new Microsoft.Crm.Sdk.Messages.AssignRequest();
+            req.Assignee = new EntityReference(crmEntityOwnership.Assignee, new Guid(crmEntityOwnership.AssigneeId));
+            req.Target = new EntityReference(crmEntityOwnership.Target, new Guid(crmEntityOwnership.TargetId));
+
+            try
+            {
+                Microsoft.Crm.Sdk.Messages.AssignResponse resp = (Microsoft.Crm.Sdk.Messages.AssignResponse)_service.Execute(req);
+                res = resp.ResponseName;
+            }
+            catch (Exception ex)
+            {
+                res = "Error: " + ex.Message;
+            }
+        }
+        return res;
+    }
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public string CRMSetStateStatus(CRMState crmState)
+    {
+        OrganizationServiceProxy _serviceProxy;
+        IOrganizationService _service;
+        string res = "";
+
+        using (_serviceProxy = GetCRMConnection())
+        {
+            // This statement is required to enable early-bound type support.
+            _serviceProxy.ServiceConfiguration.CurrentServiceEndpoint.Behaviors.Add(new ProxyTypesBehavior());
+
+            _service = (IOrganizationService)_serviceProxy;
+
+            Microsoft.Crm.Sdk.Messages.SetStateRequest ssr = new Microsoft.Crm.Sdk.Messages.SetStateRequest();
+            ssr.State = new OptionSetValue(crmState.State);
+            ssr.Status = new OptionSetValue(crmState.Status);
+            ssr.EntityMoniker = new EntityReference(crmState.Entity, new Guid(crmState.EntityId));
+
+            try
+            {
+                Microsoft.Crm.Sdk.Messages.SetStateResponse resp = (Microsoft.Crm.Sdk.Messages.SetStateResponse)_service.Execute(ssr);
+                res = resp.ResponseName;
+            }
+            catch (Exception ex)
+            {
+                res = "Error: " + ex.Message;
+            }
+        }
+        return res;
+    }
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public List<CRMState> CRMGetEntities(CRMFetchXML crmFetchXML)
+    {
+        OrganizationServiceProxy _serviceProxy;
+        IOrganizationService _service;
+        string res = "";
+        List<CRMState> returnEntities = new List<CRMState>();
+
+        using (_serviceProxy = GetCRMConnection())
+        {
+            // This statement is required to enable early-bound type support.
+            _serviceProxy.ServiceConfiguration.CurrentServiceEndpoint.Behaviors.Add(new ProxyTypesBehavior());
+
+            _service = (IOrganizationService)_serviceProxy;
+
+            try
+            {
+                EntityCollection result = _serviceProxy.RetrieveMultiple(new FetchExpression(crmFetchXML.FetchXML));
+                
+                if (result.Entities.Count > 0)
+                {
+                    foreach (var entity in result.Entities)
+                    {
+                        CRMState cEntity = new CRMState();
+                        cEntity.Entity = entity.LogicalName;
+                        cEntity.EntityId = entity.Id.ToString();
+                        returnEntities.Add(cEntity);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = "Error: " + ex.Message;
+            }
+        }
+        return returnEntities;
+    }
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public List<CRMState> CRMBulkActionTasks(CRMBulkActionTask crmBulkActionTask)
+    {
+        OrganizationServiceProxy _serviceProxy;
+        IOrganizationService _service;
+        string res = "";
+        List<CRMState> returnEntities = new List<CRMState>();
+
+        using (_serviceProxy = GetCRMConnection())
+        {
+            // This statement is required to enable early-bound type support.
+            _serviceProxy.ServiceConfiguration.CurrentServiceEndpoint.Behaviors.Add(new ProxyTypesBehavior());
+
+            _service = (IOrganizationService)_serviceProxy;
+
+            try
+            {
+                EntityCollection result = _serviceProxy.RetrieveMultiple(new FetchExpression(crmBulkActionTask.FetchXML));
+
+                if (result.Entities.Count > 0)
+                {
+                    foreach (var entity in result.Entities)
+                    {
+                        CRMState cs = new CRMState();
+                        cs.Entity = entity.LogicalName;
+                        cs.EntityId = entity.Id.ToString();
+                        cs.State = crmBulkActionTask.ToState;
+                        cs.Status = crmBulkActionTask.ToStatus;
+                        returnEntities.Add(cs);
+                        CRMSetStateStatus(cs);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = "Error: " + ex.Message;
+            }
+        }
+        return returnEntities;
+    }
+
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public CRMTask CRMCreateTask(CRMTask crmTask)
+    {
+        OrganizationServiceProxy _serviceProxy;
+        IOrganizationService _service;
+        string res = "";
+        List<CRMState> returnEntities = new List<CRMState>();
+
+        using (_serviceProxy = GetCRMConnection())
+        {
+            // This statement is required to enable early-bound type support.
+            _serviceProxy.ServiceConfiguration.CurrentServiceEndpoint.Behaviors.Add(new ProxyTypesBehavior());
+
+            _service = (IOrganizationService)_serviceProxy;
+
+            try
+            {
+                Entity task = new Entity();
+                task.LogicalName = "task";
+                task["subject"] = crmTask.Subject;
+                task["description"] = crmTask.Description;
+                task["category"] = crmTask.Category;
+                task["subcategory"] = crmTask.Subcategory;
+                task["regardingobjectid"] = new EntityReference(crmTask.Regarding.ToLower(), new Guid(crmTask.RegardingId));
+                task["scheduleddurationminutes"] = crmTask.Duration;
+                task["scheduledend"] = crmTask.DueDate;
+                task["prioritycode"] = new OptionSetValue(crmTask.Priority);
+                task["statecode"] =  new OptionSetValue(crmTask.State);
+                task["statuscode"] =  new OptionSetValue(crmTask.Status);
+
+                Guid newtask = _service.Create(task);
+
+
+                if (string.IsNullOrEmpty(crmTask.OwnerId.Trim()) && !string.IsNullOrEmpty(crmTask.OwnerFQN.Trim()))
+                {
+                    CRMUser cu = new CRMUser();
+                    cu.UserFQN = crmTask.OwnerFQN;
+                    cu = CRMGetUser(cu);
+                    crmTask.OwnerId = cu.UserId;
+                }
+                
+                if (!string.IsNullOrEmpty(crmTask.OwnerId.Trim()))
+                {
+                    CRMEntityOwnership eo = new CRMEntityOwnership();
+                    eo.Target = "task";
+                    eo.TargetId = newtask.ToString();
+                    eo.Assignee = crmTask.Owner.ToLower();
+                    eo.AssigneeId = crmTask.OwnerId;
+                    CRMChangeOwner(eo);
+                }
+
+                crmTask.Id = newtask.ToString();
+            }
+            catch (Exception ex)
+            {
+                res = "Error: " + ex.Message;
+            }
+        }
+        return crmTask;
+    }
+
+    [OperationBehavior(Impersonation = ImpersonationOption.Required)]
+    public CRMUser CRMGetUser(CRMUser crmUser)
+    {
+        CRMState returnEntities = new CRMState();
+
+        string fetchxml = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+                          <entity name='systemuser'>
+                            <attribute name='fullname' />
+                            <attribute name='businessunitid' />
+                            <attribute name='title' />
+                            <attribute name='address1_telephone1' />
+                            <attribute name='systemuserid' />
+                            <order attribute='fullname' descending='false' />
+                            <filter type='and'>
+                              <condition attribute='domainname' operator='eq' value='"
+                               + crmUser.UserFQN +"' />"
+                            +"</filter>"
+                          +"</entity>"
+                        +"</fetch>";
+
+        CRMFetchXML fx = new CRMFetchXML();
+        fx.FetchXML = fetchxml;
+        List<CRMState> user = CRMGetEntities(fx);
+
+        if (user.Count > 0)
+        {
+            crmUser.UserId = user[0].EntityId;
+        }
+        return crmUser;
+    }
+
+
+    #region Helpers
+    private OrganizationServiceProxy GetCRMConnection()
+    {
+        Uri crmOrg = new Uri(System.Configuration.ConfigurationManager.AppSettings["CRMUrl"]);
+        ClientCredentials credentials = new ClientCredentials();
+        credentials.Windows.ClientCredential = new System.Net.NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["CRMUser"], System.Configuration.ConfigurationManager.AppSettings["CRMPwd"], System.Configuration.ConfigurationManager.AppSettings["CRMDomain"]);
+
+        return new OrganizationServiceProxy(crmOrg, null, credentials, null);
+    }
+
+    private SourceCode.Workflow.Client.Connection GetWorkflowClient()
+    {
+        SourceCode.Workflow.Client.Connection k2Con = new Connection();
+        k2Con.Open(System.Configuration.ConfigurationManager.AppSettings["K2Server"]);
+        return k2Con;
+    }
+
+    #endregion Helperss
+}

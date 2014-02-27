@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// Summary description for CRMState
+/// </summary>
+public class CRMState
+{
+    public string Entity { get; set; }
+    public string EntityId { get; set; }
+    public int State { get; set; }
+    public int Status { get; set; }
+}

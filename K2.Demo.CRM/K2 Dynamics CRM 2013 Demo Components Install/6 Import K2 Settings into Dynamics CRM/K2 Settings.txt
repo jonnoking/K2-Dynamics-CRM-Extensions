@@ -1,0 +1,8 @@
+Name,Value
+HostServerConnectionString,Integrated=True;IsPrimaryLogin=True;Authenticate=True;EncryptedPassword=False;Host=dlx;Port=5555
+K2RESTServicesBaseURL,https://k2.denallix.com/K2Services/
+K2ServerName,dlx
+K2ServicesBaseUri,https://k2.denallix.com/K2Services/
+K2SmartObjectServicesBaseURL,http://dlx.denallix.com:8888/SmartObjectServices
+ViewFlowURL,https://k2.denallix.com/workspace/Tasklistcontrol/ViewFlowMain.aspx?ProcessId=
+WorkflowServerConnectionString,Integrated=True;IsPrimaryLogin=False;Authenticate=True;EncryptedPassword=False;Host=dlx;Port=5252

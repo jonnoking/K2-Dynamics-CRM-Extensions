@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2.Demo.CRM.REST.ServiceBroker", "K2.Demo.CRM.REST.ServiceBroker\K2.Demo.CRM.REST.ServiceBroker.csproj", "{815FF56E-1B17-4DAE-B868-9221CB7108CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{815FF56E-1B17-4DAE-B868-9221CB7108CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815FF56E-1B17-4DAE-B868-9221CB7108CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815FF56E-1B17-4DAE-B868-9221CB7108CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815FF56E-1B17-4DAE-B868-9221CB7108CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

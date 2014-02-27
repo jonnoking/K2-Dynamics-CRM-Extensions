@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<w:ProcessInstance xmlns:w="http://schemas.k2.com/worklist/d1"  xmlns:p="http://schemas.k2.com/process/d1"
+ FullName="[FULLNAME]" Folio="[FOLIO]" Priority="[PRIORITY]">
+ <p:DataField Name="[ENTITY ID]">[ENTITY ID VALUE]</p:DataField>
+ <p:DataField Name="[ENTITY NAME]">[ENTITY NAME VALUE]</p:DataField>
+ <p:DataField Name="[CRM ORIGINATOR]">[CRM ORIGINATOR VALUE]</p:DataField>
+</w:ProcessInstance>

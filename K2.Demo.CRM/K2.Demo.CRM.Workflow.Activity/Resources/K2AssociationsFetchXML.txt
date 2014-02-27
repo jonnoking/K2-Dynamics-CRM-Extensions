@@ -1,0 +1,12 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="k2_k2associations">
+    <attribute name="k2_k2associationsid" />
+    <attribute name="k2_name" />
+    <attribute name="createdon" />
+    <order attribute="k2_name" descending="false" />
+    <filter type="and">
+      <condition attribute="k2_entitylogicalname" operator="eq" value="[entityname]" />
+      <condition attribute="k2_processfullname" operator="eq" value="[processname]" />
+    </filter>
+  </entity>
+</fetch>

@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="K2.Demo.CRM.Functions.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CRMUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://crm.denallix.com/Denallix/XRMServices/2011/Organization.svc</Value>
+    </Setting>
+    <Setting Name="CRMUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">administrator</Value>
+    </Setting>
+    <Setting Name="CRMPwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">K2pass!</Value>
+    </Setting>
+    <Setting Name="CRMDomain" Type="System.String" Scope="User">
+      <Value Profile="(Default)">denallix</Value>
+    </Setting>
+    <Setting Name="K2Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dlx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

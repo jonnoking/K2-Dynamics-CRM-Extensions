@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// Summary description for CRMTask
+/// </summary>
+public class CRMTask
+{
+    public string Id { get; set; }
+    public string Subject { get; set; }
+    public string Description { get; set; }
+    public string Regarding { get; set; }
+    public string RegardingId { get; set; }
+    public string Category { get; set; }
+    public string Subcategory { get; set; }
+    public DateTime DueDate { get; set; }
+    public int Duration { get; set; }
+    public int State { get; set; }
+    public int Status { get; set; }
+    public int Priority { get; set; }
+    public string Owner { get; set; }
+    public string OwnerId { get; set; }
+    public string OwnerFQN { get; set; }
+    public string K2SerialNumber { get; set; }
+}

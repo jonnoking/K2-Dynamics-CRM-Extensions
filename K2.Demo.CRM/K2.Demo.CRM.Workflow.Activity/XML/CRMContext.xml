@@ -1,0 +1,10 @@
+﻿<CRMContext>
+	<Context>
+		<EntityId></EntityId>
+		<EntityType></EntityType>
+		<Organization></Organization>
+		<CRMUserId></CRMUserId>
+		<UserFQN></UserFQN>
+		<UserDisplayName></UserDisplayName>
+	</Context>
+</CRMContext>

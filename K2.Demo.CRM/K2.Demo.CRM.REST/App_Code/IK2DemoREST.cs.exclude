@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using System.ServiceModel.Web;
+using SourceCode.Services.DataContracts;
+using System.ServiceModel.Syndication;
+
+// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IK2DemoREST" in both code and config file together.
+[ServiceContract]
+public interface IK2DemoREST
+{
+    /// <summary>
+    /// Opens the worklist.
+    /// </summary>
+    /// <param name="actDataField">if set to <c>true</c> activity data fields will be returned.</param>
+    /// <param name="actXmlField">if set to <c>true</c> activity XML fields will be returned.</param>
+    /// <param name="piDataField">if set to <c>true</c> process instance data fields will be returned.</param>
+    /// <param name="piXmlField">if set to <c>true</c> process instance XML fields will be returned.</param>
+    /// <returns></returns>
+    [WebInvoke(
+        Method = "GET",
+        UriTemplate = "Items?actDataField={actDataField}&actXmlField={actXmlField}&piDataField={piDataField}&piXmlField={piXmlField}",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    WorklistItemCollection OpenWorklist(bool actDataField, bool actXmlField, bool piDataField, bool piXmlField);
+
+    /// <summary>
+    /// Search for a worklist item by datafield
+    /// </summary>
+    /// <param name="sDataFieldName">data field name</param>
+    /// <param name="sDataFieldValue">data field value</param>
+    /// <param name="actDataField">if set to <c>true</c> activity data fields will be returned.</param>
+    /// <param name="actXmlField">if set to <c>true</c> activity XML fields will be returned.</param>
+    /// <param name="piDataField">if set to <c>true</c> process instance data fields will be returned.</param>
+    /// <param name="piXmlField">if set to <c>true</c> process instance XML fields will be returned.</param>
+    /// <returns></returns>
+    [WebInvoke(
+        Method = "GET",
+        UriTemplate = "WorklistDataFieldSearch?sDataFieldName={sDataFieldName}&sDataFieldValue={sDataFieldValue}&actDataField={actDataField}&actXmlField={actXmlField}&piDataField={piDataField}&piXmlField={piXmlField}",
+        RequestFormat = WebMessageFormat.Xml,
+        ResponseFormat = WebMessageFormat.Xml,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    WorklistItemCollection SearchWorklistForDataField(string sDataFieldName, string sDataFieldValue, bool actDataField, bool actXmlField, bool piDataField, bool piXmlField);
+
+
+    [WebInvoke(
+        Method = "POST",
+        UriTemplate = "CRMChangeOwner",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    string CRMChangeOwner(CRMEntityOwnership crmEntityOwnership);
+
+    [WebInvoke(
+        Method = "POST",
+        UriTemplate = "CRMSetStateStatus",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    string CRMSetStateStatus(CRMState crmState);
+
+    [WebInvoke(
+        Method = "POST",
+        UriTemplate = "CRMGetEntities",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    List<CRMState> CRMGetEntities(CRMFetchXML crmFetchXML);
+
+    [WebInvoke(
+        Method = "POST",
+        UriTemplate = "CRMBulkActionTasks",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    List<CRMState> CRMBulkActionTasks(CRMBulkActionTask crmBulkActionTask);
+
+    [WebInvoke(
+        Method = "POST",
+        UriTemplate = "CRMCreateTask",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare)]
+    [OperationContract]
+    [FaultContract(typeof(Failure))]
+    [ServiceKnownType(typeof(Atom10FeedFormatter))]
+    CRMTask CRMCreateTask(CRMTask crmTask);
+
+}

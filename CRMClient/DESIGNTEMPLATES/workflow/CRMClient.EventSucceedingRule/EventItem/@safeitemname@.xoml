@@ -1,0 +1,23 @@
+<ns0:WorkflowContext x:Class="$rootnamespace$.$safeitemname$" x:Name="$safeitemname$" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:SourceCode.Workflow.Common.Extenders;Assembly=SourceCode.Workflow.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
+	<ns0:WorkflowContext.LockedActivities>
+		<x:Array Type="{x:Type p5:String}" xmlns:p5="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+			<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">RuleOutcome</ns1:String>
+			<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">RuleOutcomeTrue</ns1:String>
+			<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">EvaluateRule</ns1:String>
+			<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">SetSucceedingRuleTrue</ns1:String>
+			<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">SetSucceedingRuleFalse</ns1:String>
+		</x:Array>
+	</ns0:WorkflowContext.LockedActivities>
+	<IfElseActivity x:Name="RuleOutcome">
+		<IfElseBranchActivity x:Name="RuleOutcomeTrue">
+			<IfElseBranchActivity.Condition>
+				<CodeCondition Condition="EvaluateRule" />
+			</IfElseBranchActivity.Condition>
+			<CodeActivity x:Name="SetSucceedingRuleTrue" ExecuteCode="SetSucceedingRuleTrue_ExecuteCode" />
+		</IfElseBranchActivity>
+		<IfElseBranchActivity x:Name="RuleOutcomeFalse">
+			<CodeActivity x:Name="SetSucceedingRuleFalse" ExecuteCode="SetSucceedingRuleFalse_ExecuteCode" />
+		</IfElseBranchActivity>
+	</IfElseActivity>
+	<CodeActivity x:Name="UpdateCRMTask" ExecuteCode="UpdateCRMTask_ExecuteCode" />
+</ns0:WorkflowContext>

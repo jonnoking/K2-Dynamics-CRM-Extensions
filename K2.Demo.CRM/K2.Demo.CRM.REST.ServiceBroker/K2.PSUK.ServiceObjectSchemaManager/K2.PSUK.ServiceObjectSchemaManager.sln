@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2.PSUK.ServiceObjectSchema", "K2.PSUK.ServiceObjectSchemaManager\K2.PSUK.ServiceObjectSchema.csproj", "{C4EEC18C-6E64-418A-B206-D39B6B1E6595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2.PSUK.ServiceObjectSchema.UnitTest", "K2.PSUK.ServiceObjectSchema.UnitTest\K2.PSUK.ServiceObjectSchema.UnitTest.csproj", "{3962CA73-2DBB-4102-8F8B-9CD4F46A2985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2.PSUK.ServiceObjectSchemaConfigurator", "K2.PSUK.ServiceSchemaConfigurator\K2.PSUK.ServiceObjectSchemaConfigurator.csproj", "{9D4FA497-F0F8-40A7-9C15-D5CC8C21DF8E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://77.89.169.163/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = K2.PSUK.ServiceObjectSchema.UnitTest\\K2.PSUK.ServiceObjectSchema.UnitTest.csproj
+		SccProjectName1 = K2.PSUK.ServiceObjectSchema.UnitTest
+		SccLocalPath1 = K2.PSUK.ServiceObjectSchema.UnitTest
+		SccProjectUniqueName2 = K2.PSUK.ServiceObjectSchemaManager\\K2.PSUK.ServiceObjectSchema.csproj
+		SccProjectName2 = K2.PSUK.ServiceObjectSchemaManager
+		SccLocalPath2 = K2.PSUK.ServiceObjectSchemaManager
+		SccProjectUniqueName3 = K2.PSUK.ServiceSchemaConfigurator\\K2.PSUK.ServiceObjectSchemaConfigurator.csproj
+		SccProjectName3 = K2.PSUK.ServiceSchemaConfigurator
+		SccLocalPath3 = K2.PSUK.ServiceSchemaConfigurator
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4EEC18C-6E64-418A-B206-D39B6B1E6595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4EEC18C-6E64-418A-B206-D39B6B1E6595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4EEC18C-6E64-418A-B206-D39B6B1E6595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4EEC18C-6E64-418A-B206-D39B6B1E6595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3962CA73-2DBB-4102-8F8B-9CD4F46A2985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3962CA73-2DBB-4102-8F8B-9CD4F46A2985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3962CA73-2DBB-4102-8F8B-9CD4F46A2985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3962CA73-2DBB-4102-8F8B-9CD4F46A2985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4FA497-F0F8-40A7-9C15-D5CC8C21DF8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4FA497-F0F8-40A7-9C15-D5CC8C21DF8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4FA497-F0F8-40A7-9C15-D5CC8C21DF8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4FA497-F0F8-40A7-9C15-D5CC8C21DF8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

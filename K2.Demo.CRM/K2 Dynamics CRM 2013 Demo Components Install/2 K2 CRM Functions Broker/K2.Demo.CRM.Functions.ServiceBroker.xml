@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ServiceInstanceName>K2CRMFunctionsServiceBroker</ServiceInstanceName>
+    <ServiceInstanceDisplayName>K2 CRM Functions</ServiceInstanceDisplayName>
+    <ServiceInstanceDescription>Provides various Dynamics CRM 2011 Functions</ServiceInstanceDescription>
+    <SchemaProperties>
+        <SchemaProperty>
+            <Name>Category</Name>
+            <DisplayName>Category</DisplayName>
+            <Description>Category</Description>
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Description</Name>
+            <DisplayName>Description</DisplayName>
+            <Description>Description</Description>
+            <TrueType>string</TrueType>
+            <K2Type>Memo</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>DueDate</Name>
+            <DisplayName>Due Date</DisplayName>
+            <Description>Due Date</Description>
+            <TrueType>DateTime</TrueType>
+            <K2Type>DateTime</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Duration</Name>
+            <DisplayName>Duration</DisplayName>
+            <Description>Duration</Description>
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>OwnerFQN</Name>
+            <DisplayName>Owner FQN</DisplayName>
+            <Description>Owner FQN</Description>
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Owner</Name>
+            <DisplayName>Owner</DisplayName>
+            <Description>Owner</Description>
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>OwnerId</Name>
+            <DisplayName>Owner Id</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Priority</Name>
+            <DisplayName>Priority</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Regarding</Name>
+            <DisplayName>Regarding</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>RegardingId</Name>
+            <DisplayName>Regarding Id</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>State</Name>
+            <DisplayName>State</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Status</Name>
+            <DisplayName>Status</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Subcategory</Name>
+            <DisplayName>Subcategory</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Subject</Name>
+            <DisplayName>Subject</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Memo</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Assignee</Name>
+            <DisplayName>Assignee</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AssigneeId</Name>
+            <DisplayName>AssigneeId</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Target</Name>
+            <DisplayName>Target</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>TargetId</Name>
+            <DisplayName>Target Id</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityId</Name>
+            <DisplayName>Entity Id</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>Entity</Name>
+            <DisplayName>Entity</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>FetchXML</Name>
+            <DisplayName>FetchXML</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>FromState</Name>
+            <DisplayName>From State</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>FromStatus</Name>
+            <DisplayName>From Status</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ToState</Name>
+            <DisplayName>To State</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ToStatus</Name>
+            <DisplayName>To Status</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>UserFQN</Name>
+            <DisplayName>User FQN</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>UserId</Name>
+            <DisplayName>User Id</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>TaskId</Name>
+            <DisplayName>Task Id</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>WorkflowId</Name>
+            <DisplayName>Workflow Id</DisplayName>
+            <Description>Workflow Id</Description>
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>WorkflowName</Name>
+            <DisplayName>Workflow Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>K2SerialNumber</Name>
+            <DisplayName>K2 Serial Number</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>K2ProcessName</Name>
+            <DisplayName>K2 Process Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>K2ActivityName</Name>
+            <DisplayName>K2 Activity Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityLogicalName</Name>
+            <DisplayName>Entity Logical Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityDisplayName</Name>
+            <DisplayName>Entity Display Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityObjectTypeCode</Name>
+            <DisplayName>Entity Object Type Code</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityPrimaryIdAttribute</Name>
+            <DisplayName>Entity Primary Id Attribute</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityPrimaryNameAttribute</Name>
+            <DisplayName>Entity Primary Name Attribute</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityIsCustomEntity</Name>
+            <DisplayName>Entity Is Custom Entity</DisplayName>
+            <Description />
+            <TrueType>bool</TrueType>
+            <K2Type>YesNo</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>K2ProcessInstanceId</Name>
+            <DisplayName>K2 Process Instance Id</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>LinkFromEntityName</Name>
+            <DisplayName>Link From Entity Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>LinkFromAttributeName</Name>
+            <DisplayName>Link From Attribute Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>LinkToEntityName</Name>
+            <DisplayName>Link To Entity Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>LinkToAttributeName</Name>
+            <DisplayName>Link To Attribute Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ConditionOperator</Name>
+            <DisplayName>Condition Operator</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ConditionValue</Name>
+            <DisplayName>Condition Value</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttributes</Name>
+            <DisplayName>Return Attributes</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute0</Name>
+            <DisplayName>ReturnAttribute0</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute1</Name>
+            <DisplayName>ReturnAttribute1</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute2</Name>
+            <DisplayName>ReturnAttribute2</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute3</Name>
+            <DisplayName>ReturnAttribute3</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute4</Name>
+            <DisplayName>ReturnAttribute4</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute5</Name>
+            <DisplayName>ReturnAttribute5</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute6</Name>
+            <DisplayName>ReturnAttribute6</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute7</Name>
+            <DisplayName>ReturnAttribute7</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute8</Name>
+            <DisplayName>ReturnAttribute8</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ReturnAttribute9</Name>
+            <DisplayName>ReturnAttribute9</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>ConditionAttributeName</Name>
+            <DisplayName>Condition Attribute Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeLogicalName</Name>
+            <DisplayName>Attribute Logical Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeSchemaName</Name>
+            <DisplayName>Attribute Schema Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeDisplayName</Name>
+            <DisplayName>AttributeDisplayName</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeType</Name>
+            <DisplayName>AttributeType</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeDescription</Name>
+            <DisplayName>Attribute Description</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeRequiredLevel</Name>
+            <DisplayName>AttributeRequiredLevel</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeIsValidForCreate</Name>
+            <DisplayName>Attribute Is Valid For Create</DisplayName>
+            <Description />
+            <TrueType>bool</TrueType>
+            <K2Type>YesNo</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeIsValidForRead</Name>
+            <DisplayName>Attribute Is Valid For Read</DisplayName>
+            <Description />
+            <TrueType>bool</TrueType>
+            <K2Type>YesNo</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>AttributeIsValidForUpdate</Name>
+            <DisplayName>Attribute Is Valid For Update</DisplayName>
+            <Description />
+            <TrueType>bool</TrueType>
+            <K2Type>YesNo</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>PicklistValue</Name>
+            <DisplayName>Picklist Value</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>PicklistParentValue</Name>
+            <DisplayName>Picklist Parent Value</DisplayName>
+            <Description />
+            <TrueType>int</TrueType>
+            <K2Type>Number</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>PicklistLabel</Name>
+            <DisplayName>Picklist Label</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>PicklistParentLabel</Name>
+            <DisplayName>Picklist Parent Label</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityIntersectAttribute</Name>
+            <DisplayName>Entity Intersect Attribute</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityIntersectEntityName</Name>
+            <DisplayName>Entity Intersect Entity Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntitySchemaName</Name>
+            <DisplayName>Entity Schema Name</DisplayName>
+            <Description />
+            <TrueType>string</TrueType>
+            <K2Type>Text</K2Type>
+        </SchemaProperty>
+        <SchemaProperty>
+            <Name>EntityIsCustomRelationship</Name>
+            <DisplayName>Entity Is Custom Relationship</DisplayName>
+            <Description />
+            <TrueType>bool</TrueType>
+            <K2Type>YesNo</K2Type>
+        </SchemaProperty>
+    </SchemaProperties>
+    <SchemaMethods>
+        <SchemaMethod>
+            <Name>CreateTask</Name>
+            <DisplayName>Create Task</DisplayName>
+            <Description />
+            <K2Type>Create</K2Type>
+            <InputProperties>
+                <string>Category</string>
+                <string>Description</string>
+                <string>DueDate</string>
+                <string>Duration</string>
+                <string>OwnerFQN</string>
+                <string>Owner</string>
+                <string>OwnerId</string>
+                <string>Priority</string>
+                <string>Regarding</string>
+                <string>RegardingId</string>
+                <string>State</string>
+                <string>Status</string>
+                <string>Subcategory</string>
+                <string>Subject</string>
+                <string>K2SerialNumber</string>
+                <string>K2ProcessName</string>
+                <string>K2ActivityName</string>
+                <string>K2ProcessInstanceId</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>Category</string>
+                <string>DueDate</string>
+                <string>Duration</string>
+                <string>Priority</string>
+                <string>State</string>
+                <string>Status</string>
+                <string>Subcategory</string>
+                <string>Subject</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>Category</string>
+                <string>Description</string>
+                <string>DueDate</string>
+                <string>Duration</string>
+                <string>OwnerFQN</string>
+                <string>Owner</string>
+                <string>OwnerId</string>
+                <string>Priority</string>
+                <string>Regarding</string>
+                <string>RegardingId</string>
+                <string>State</string>
+                <string>Status</string>
+                <string>Subcategory</string>
+                <string>Subject</string>
+                <string>TaskId</string>
+                <string>K2SerialNumber</string>
+                <string>K2ProcessName</string>
+                <string>K2ActivityName</string>
+                <string>K2ProcessInstanceId</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>ChangeOwner</Name>
+            <DisplayName>Change Owner</DisplayName>
+            <Description />
+            <K2Type>Read</K2Type>
+            <InputProperties>
+                <string>Assignee</string>
+                <string>AssigneeId</string>
+                <string>Target</string>
+                <string>TargetId</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>Assignee</string>
+                <string>AssigneeId</string>
+                <string>Target</string>
+                <string>TargetId</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>Assignee</string>
+                <string>AssigneeId</string>
+                <string>Target</string>
+                <string>TargetId</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>SetStateStatus</Name>
+            <DisplayName>Set State Status</DisplayName>
+            <Description />
+            <K2Type>Read</K2Type>
+            <InputProperties>
+                <string>State</string>
+                <string>Status</string>
+                <string>EntityId</string>
+                <string>Entity</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>State</string>
+                <string>Status</string>
+                <string>EntityId</string>
+                <string>Entity</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>State</string>
+                <string>Status</string>
+                <string>EntityId</string>
+                <string>Entity</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetEntities</Name>
+            <DisplayName>Get Entities</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>FetchXML</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>FetchXML</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>State</string>
+                <string>Status</string>
+                <string>EntityId</string>
+                <string>Entity</string>
+                <string>FetchXML</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>BulkActionTasks</Name>
+            <DisplayName>Bulk Action Tasks</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>FetchXML</string>
+                <string>FromState</string>
+                <string>FromStatus</string>
+                <string>ToState</string>
+                <string>ToStatus</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>FetchXML</string>
+                <string>FromState</string>
+                <string>FromStatus</string>
+                <string>ToState</string>
+                <string>ToStatus</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>State</string>
+                <string>Status</string>
+                <string>EntityId</string>
+                <string>Entity</string>
+                <string>FetchXML</string>
+                <string>FromState</string>
+                <string>FromStatus</string>
+                <string>ToState</string>
+                <string>ToStatus</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetCRMUser</Name>
+            <DisplayName>Get CRM User</DisplayName>
+            <Description />
+            <K2Type>Read</K2Type>
+            <InputProperties>
+                <string>UserFQN</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>UserFQN</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>UserFQN</string>
+                <string>UserId</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>StartCRMWorkflow</Name>
+            <DisplayName>Start CRM Workflow</DisplayName>
+            <Description />
+            <K2Type>Read</K2Type>
+            <InputProperties>
+                <string>EntityId</string>
+                <string>WorkflowName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>EntityId</string>
+                <string>WorkflowName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityId</string>
+                <string>WorkflowId</string>
+                <string>WorkflowName</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetEntityMetadata</Name>
+            <DisplayName>Get Entity Metadata</DisplayName>
+            <Description />
+            <K2Type>Read</K2Type>
+            <InputProperties>
+                <string>EntityLogicalName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>EntityLogicalName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityLogicalName</string>
+                <string>EntityDisplayName</string>
+                <string>EntityObjectTypeCode</string>
+                <string>EntityPrimaryIdAttribute</string>
+                <string>EntityPrimaryNameAttribute</string>
+                <string>EntityIsCustomEntity</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>BulkActionTasksSetCriteria</Name>
+            <DisplayName>Bulk Action Tasks Set Criteria</DisplayName>
+            <Description />
+            <K2Type>Read</K2Type>
+            <InputProperties>
+                <string>Regarding</string>
+                <string>RegardingId</string>
+                <string>FromState</string>
+                <string>FromStatus</string>
+                <string>ToState</string>
+                <string>ToStatus</string>
+                <string>K2ProcessName</string>
+                <string>K2ActivityName</string>
+                <string>K2ProcessInstanceId</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>FromState</string>
+                <string>FromStatus</string>
+                <string>ToState</string>
+                <string>ToStatus</string>
+                <string>K2ProcessName</string>
+                <string>K2ProcessInstanceId</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>FetchXML</string>
+                <string>FromState</string>
+                <string>FromStatus</string>
+                <string>ToState</string>
+                <string>ToStatus</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>RetrieveMultiple</Name>
+            <DisplayName>Retrieve Multiple</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>LinkFromEntityName</string>
+                <string>LinkFromAttributeName</string>
+                <string>LinkToEntityName</string>
+                <string>LinkToAttributeName</string>
+                <string>ConditionOperator</string>
+                <string>ConditionValue</string>
+                <string>ReturnAttributes</string>
+                <string>ConditionAttributeName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>LinkFromEntityName</string>
+                <string>LinkFromAttributeName</string>
+                <string>LinkToEntityName</string>
+                <string>LinkToAttributeName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityId</string>
+                <string>LinkFromEntityName</string>
+                <string>LinkFromAttributeName</string>
+                <string>LinkToEntityName</string>
+                <string>LinkToAttributeName</string>
+                <string>ConditionOperator</string>
+                <string>ConditionValue</string>
+                <string>ReturnAttributes</string>
+                <string>ReturnAttribute0</string>
+                <string>ReturnAttribute1</string>
+                <string>ReturnAttribute2</string>
+                <string>ReturnAttribute3</string>
+                <string>ReturnAttribute4</string>
+                <string>ReturnAttribute5</string>
+                <string>ReturnAttribute6</string>
+                <string>ReturnAttribute7</string>
+                <string>ReturnAttribute8</string>
+                <string>ReturnAttribute9</string>
+                <string>ConditionAttributeName</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetAllEntities</Name>
+            <DisplayName>Get All Entities</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties />
+            <RequiredProperties />
+            <ReturnProperties>
+                <string>EntityLogicalName</string>
+                <string>EntityDisplayName</string>
+                <string>EntityObjectTypeCode</string>
+                <string>EntityPrimaryIdAttribute</string>
+                <string>EntityPrimaryNameAttribute</string>
+                <string>EntityIsCustomEntity</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetEntityAttributes</Name>
+            <DisplayName>Get Entity Attributes</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>EntityLogicalName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>EntityLogicalName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityLogicalName</string>
+                <string>AttributeLogicalName</string>
+                <string>AttributeSchemaName</string>
+                <string>AttributeDisplayName</string>
+                <string>AttributeType</string>
+                <string>AttributeDescription</string>
+                <string>AttributeRequiredLevel</string>
+                <string>AttributeIsValidForCreate</string>
+                <string>AttributeIsValidForRead</string>
+                <string>AttributeIsValidForUpdate</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetPicklist</Name>
+            <DisplayName>Get Picklist</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>EntityLogicalName</string>
+                <string>AttributeLogicalName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>EntityLogicalName</string>
+                <string>AttributeLogicalName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityLogicalName</string>
+                <string>AttributeLogicalName</string>
+                <string>PicklistValue</string>
+                <string>PicklistParentValue</string>
+                <string>PicklistLabel</string>
+                <string>PicklistParentLabel</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetStateStatusPicklist</Name>
+            <DisplayName>Get State Status Picklist</DisplayName>
+            <Description />
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>EntityLogicalName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>EntityLogicalName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityLogicalName</string>
+                <string>PicklistValue</string>
+                <string>PicklistParentValue</string>
+                <string>PicklistLabel</string>
+                <string>PicklistParentLabel</string>
+            </ReturnProperties>
+        </SchemaMethod>
+        <SchemaMethod>
+            <Name>GetRelatedEntities</Name>
+            <DisplayName>GetRelatedEntities</DisplayName>
+            <Description>Retrieve M:M Related Entity Names</Description>
+            <K2Type>List</K2Type>
+            <InputProperties>
+                <string>EntityLogicalName</string>
+            </InputProperties>
+            <RequiredProperties>
+                <string>EntityLogicalName</string>
+            </RequiredProperties>
+            <ReturnProperties>
+                <string>EntityLogicalName</string>
+                <string>EntityIntersectAttribute</string>
+                <string>EntityIntersectEntityName</string>
+                <string>EntitySchemaName</string>
+                <string>EntityIsCustomRelationship</string>
+            </ReturnProperties>
+        </SchemaMethod>
+    </SchemaMethods>
+</SchemaObject>

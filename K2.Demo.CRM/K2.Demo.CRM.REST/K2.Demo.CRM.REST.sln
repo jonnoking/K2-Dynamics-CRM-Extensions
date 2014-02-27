@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "K2.Demo.CRM.REST", "http://localhost/K2.Demo.CRM.REST", "{9BC623E7-89E6-497B-81E3-0C9741A51B7C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/K2.Demo.CRM.REST"
+		Debug.AspNetCompiler.PhysicalPath = "..\K2.Demo.CRM.REST\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\K2.Demo.CRM.REST\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/K2.Demo.CRM.REST"
+		Release.AspNetCompiler.PhysicalPath = "..\K2.Demo.CRM.REST\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\K2.Demo.CRM.REST\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\..\..\K2 Solutions\K2.Demo.CRM.REST\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BC623E7-89E6-497B-81E3-0C9741A51B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC623E7-89E6-497B-81E3-0C9741A51B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

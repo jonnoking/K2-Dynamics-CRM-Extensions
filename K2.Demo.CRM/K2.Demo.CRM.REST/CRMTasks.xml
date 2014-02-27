@@ -1,0 +1,16 @@
+﻿<CRMTasks>
+	<Task>
+		<TaskId></TaskId>
+		<SerialNumber></SerialNumber>
+		<DestinationUser></DestinationUser>
+		<Process></Process>
+		<Activity></Activity>
+	</Task>
+	<Task>
+		<TaskId></TaskId>
+		<SerialNumber></SerialNumber>
+		<DestinationUser></DestinationUser>
+		<Process></Process>
+		<Activity></Activity>
+	</Task>
+</CRMTasks>

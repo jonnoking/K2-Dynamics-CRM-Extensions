@@ -1,0 +1,7 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="k2_k2settings">
+    <attribute name="k2_name" />
+    <attribute name="k2_value" />
+    <attribute name="k2_k2settingsid" />
+  </entity>
+</fetch>
