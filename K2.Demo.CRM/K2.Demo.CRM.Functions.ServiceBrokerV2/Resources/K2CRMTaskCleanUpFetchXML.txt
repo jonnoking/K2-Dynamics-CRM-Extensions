@@ -1,0 +1,21 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+	<entity name="task">
+		<attribute name="subject"/>
+		<attribute name="statecode"/>
+		<attribute name="prioritycode"/>
+		<attribute name="scheduledend"/>
+		<attribute name="createdby"/>
+		<attribute name="regardingobjectid"/>
+		<attribute name="activityid"/>
+		<attribute name="k2_k2activityname"/>
+		<attribute name="k2_k2processname"/>
+		<order attribute="subject" descending="false"/>
+		<filter type="and">
+			<condition attribute="regardingobjectid" operator="eq" uitype="[entityname]" value="[entityid]"/>
+			<condition attribute="k2_k2activityname" operator="eq" value="[activityname]"/>
+			<condition attribute="k2_k2processname" operator="eq" value="[processname]"/>
+			<condition attribute="k2_k2processinstanceid" operator="eq" value="[processinstanceid]"/>
+			<condition attribute="statuscode" operator="eq" value="[statuscode]" />
+		</filter>
+	</entity>
+</fetch>
