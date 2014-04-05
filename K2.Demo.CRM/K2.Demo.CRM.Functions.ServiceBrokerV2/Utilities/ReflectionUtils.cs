@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +38,11 @@ namespace K2.Demo.CRM.Functions.ServiceBrokerV2.Utilities
             return (T)retval;
         }
 
-
+        public static void SetPropValue<T>(T obj, string propName, object value)
+        {
+            PropertyInfo Prop = obj.GetType().GetProperty(propName);
+            Prop.SetValue(obj, Convert.ChangeType(value, Prop.PropertyType), null);
+        }
 
     }
 }

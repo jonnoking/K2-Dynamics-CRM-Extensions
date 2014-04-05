@@ -348,8 +348,8 @@ namespace K2.Demo.CRM.Functions.ServiceBroker
         {
             SourceCode.SmartObjects.Services.ServiceSDK.Objects.Method meth = so.Methods[0];
             
-            bool async = false;
-            bool.TryParse(NotNull(so.Properties["ExecuteAsync"].Value), out async);
+            //bool async = false;
+            //bool.TryParse(NotNull(so.Properties["ExecuteAsync"].Value), out async);
 
             CRMTask task = new CRMTask();
             task.Config = crmconfig;

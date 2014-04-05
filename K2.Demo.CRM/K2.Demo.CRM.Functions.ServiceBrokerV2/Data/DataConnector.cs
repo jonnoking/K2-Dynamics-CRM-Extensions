@@ -107,11 +107,11 @@ namespace K2.Demo.CRM.Functions.ServiceBrokerV2.Data
         {
             TypeMappings map = GetTypeMappings();
 
-            BlobContainer container = new BlobContainer(serviceBroker);
-            container.Create();
+            //BlobContainer container = new BlobContainer(serviceBroker);
+            //container.Create();
 
-            BlobBlob blob = new BlobBlob(serviceBroker);
-            blob.Create();
+            //BlobBlob blob = new BlobBlob(serviceBroker);
+            //blob.Create();
 
         }
 

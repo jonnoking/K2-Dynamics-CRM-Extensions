@@ -58,6 +58,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\K2.Demo.CRM.K2Forms2013WebApi.js" />
     <Content Include="Scripts\K2.Demo.CRM.Ribbon.js" />
     <Content Include="Scripts\K2.Demo.CRM.K2Forms2013.js" />
     <Content Include="Scripts\jquery-1.5.2.js" />

@@ -288,76 +288,89 @@ namespace K2.Demo.CRM.Functions.ServiceBrokerV2.Data
 
             try
             {
-                //required
-                CRMTaskInput.Category = inputs.Where(p => p.Name.Equals("category", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                CRMTaskInput.Description = inputs.Where(p => p.Name.Equals("description", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                //required
-                CRMTaskInput.DueDate = DateTime.Parse(inputs.Where(p => p.Name.Equals("duedate", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
 
-                //required
-                CRMTaskInput.Duration = int.Parse(inputs.Where(p => p.Name.Equals("duration", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
-                
-                CRMTaskInput.OwnerFQN = inputs.Where(p => p.Name.Equals("ownerfqn", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                CRMTaskInput.Owner = inputs.Where(p => p.Name.Equals("owner", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                CRMTaskInput.OwnerId = inputs.Where(p => p.Name.Equals("ownerid", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                //required
-                CRMTaskInput.Priority = int.Parse(inputs.Where(p => p.Name.Equals("priority", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
-                
-                CRMTaskInput.Regarding = inputs.Where(p => p.Name.Equals("regarding", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                CRMTaskInput.RegardingId = inputs.Where(p => p.Name.Equals("regardingid", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                //required
-                CRMTaskInput.State = int.Parse(inputs.Where(p => p.Name.Equals("state", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
-                
-                //required
-                CRMTaskInput.Status = int.Parse(inputs.Where(p => p.Name.Equals("status", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
-                
-                //required
-                CRMTaskInput.Subcategory = inputs.Where(p => p.Name.Equals("subcategory", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                //required
-                CRMTaskInput.Subject = inputs.Where(p => p.Name.Equals("subject", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                
-                CRMTaskInput.K2SerialNumber = inputs.Where(p => p.Name.Equals("k2serialnumber", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                CRMTaskInput.K2ProcessName = inputs.Where(p => p.Name.Equals("k2processname", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
-                CRMTaskInput.K2ActivityName = inputs.Where(p => p.Name.Equals("k2activityname", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                PropertyInfo[] PropInfoCRMTask = CRMTaskResult.GetType().GetProperties(BindingFlags.Public);
 
-                int procInstId;
-                if (int.TryParse(inputs.Where(p => p.Name.Equals("k2processinstanceid", StringComparison.OrdinalIgnoreCase)).First().Value.ToString(), out procInstId))
+                foreach (Property prop in inputs)
                 {
-                    CRMTaskInput.K2ProcessInstanceId = procInstId;
+                    if (prop.Value != null)
+                    {
+                        //PropertyInfo RefProp = PropInfoCRMTask.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First();
+                        PropertyInfo RefProp = PropInfoCRMTask.GetType().GetProperty(prop.Name);
+                        if (RefProp != null)
+                        {
+                            //prop.Value = Utilities.ReflectionUtils.GetPropValue(CRMTaskResult, RefProp.Name);
+                            Utilities.ReflectionUtils.SetPropValue<Functions.CRMTask>(CRMTaskInput, prop.Name, prop.Value);
+
+                        }
+                    }
                 }
+
+
+                //required
+                //CRMTaskInput.Category = inputs.Where(p => p.Name.Equals("category", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                //CRMTaskInput.Description = inputs.Where(p => p.Name.Equals("description", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                ////required
+                //CRMTaskInput.DueDate = DateTime.Parse(inputs.Where(p => p.Name.Equals("duedate", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
+
+                ////required
+                //CRMTaskInput.Duration = int.Parse(inputs.Where(p => p.Name.Equals("duration", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
+                
+                //CRMTaskInput.OwnerFQN = inputs.Where(p => p.Name.Equals("ownerfqn", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                //CRMTaskInput.Owner = inputs.Where(p => p.Name.Equals("owner", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                //CRMTaskInput.OwnerId = inputs.Where(p => p.Name.Equals("ownerid", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                ////required
+                //CRMTaskInput.Priority = int.Parse(inputs.Where(p => p.Name.Equals("priority", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
+                
+                //CRMTaskInput.Regarding = inputs.Where(p => p.Name.Equals("regarding", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                //CRMTaskInput.RegardingId = inputs.Where(p => p.Name.Equals("regardingid", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                ////required
+                //CRMTaskInput.State = int.Parse(inputs.Where(p => p.Name.Equals("state", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
+                
+                ////required
+                //CRMTaskInput.Status = int.Parse(inputs.Where(p => p.Name.Equals("status", StringComparison.OrdinalIgnoreCase)).First().Value.ToString());
+                
+                ////required
+                //CRMTaskInput.Subcategory = inputs.Where(p => p.Name.Equals("subcategory", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                ////required
+                //CRMTaskInput.Subject = inputs.Where(p => p.Name.Equals("subject", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                
+                //CRMTaskInput.K2SerialNumber = inputs.Where(p => p.Name.Equals("k2serialnumber", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                //CRMTaskInput.K2ProcessName = inputs.Where(p => p.Name.Equals("k2processname", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+                //CRMTaskInput.K2ActivityName = inputs.Where(p => p.Name.Equals("k2activityname", StringComparison.OrdinalIgnoreCase)).First().Value.ToString();
+
+                //int procInstId;
+                //if (int.TryParse(inputs.Where(p => p.Name.Equals("k2processinstanceid", StringComparison.OrdinalIgnoreCase)).First().Value.ToString(), out procInstId))
+                //{
+                //    CRMTaskInput.K2ProcessInstanceId = procInstId;
+                //}
                 
                 CRMTaskResult = CRMFunctions.CRMCreateTask(CRMTaskInput);
 
-                List<string> OProps = new List<string>();
-                OProps.Where(p => p == "").First();
-
+                //List<string> OProps = new List<string>();
+                //OProps.Where(p => p == "").First();
 
                 if (CRMTaskResult != null)
                 {
-                    PropertyInfo[] PropInfoCRMTask = CRMTaskResult.GetType().GetProperties(BindingFlags.Public);
 
                     //foreach(PropertyInfo prop in CRMTaskResult.GetType().GetProperties(BindingFlags.Public))
                     foreach(Property prop in returns)
                     {
-                        if(PropInfoCRMTask.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First() != null)
+                        //PropertyInfo RefProp = PropInfoCRMTask.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First();
+                        PropertyInfo RefProp = PropInfoCRMTask.GetType().GetProperty(prop.Name);
+                        if( RefProp != null)
                         {
-                            prop.Value = Utilities.ReflectionUtils.GetPropValue(CRMTaskResult, PropInfoCRMTask.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First().Name);
+                            prop.Value = Utilities.ReflectionUtils.GetPropValue(CRMTaskResult, RefProp.Name);
                         }
 
-                        PropertyInfo aa = PropInfoCRMTask.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First();
-
-                        
-                       
-
-                        
-
+                        //PropertyInfo aa = PropInfoCRMTask.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First();
 
 
                         //if (returns.Where(p => p.Name.Equals(prop.Name, StringComparison.OrdinalIgnoreCase)).First() != null)
