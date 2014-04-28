@@ -189,22 +189,39 @@ function checkForTasks(callAsync) {
 }
 
 function handleCheckForTasks(data) {
+    K2SN = '';
 
     var task;
-
+    var isMultipleTasks = false;
     if (data.d.results != null && data.d.results != undefined) {
         // take the first task if multiple are returned
         task = data.d.results[0];
+        isMultipleTasks = true;
     } else {
         task = data.d;
     }
 
+    if (isMultipleTasks) {
+        for (var i = 0; i < data.d.results.length; i++) {
+            if (getK2SerialNumberFromTask(data.d.results[i]) != '') {
+                break;
+            }
+        }
+    } else {
+        // just one task returned
+        getK2SerialNumberFromTask(task);
+    }
+
+    K2_CONFIG_CHECKFORTASKS_COMPLETE = true;
+}
+
+function getK2SerialNumberFromTask(task) {
     if (task != null && task && task.k2_k2serialnumber != null && task.k2_k2serialnumber) {
         if (task.k2_k2serialnumber != "") {
             K2SN = task.k2_k2serialnumber;
         }
     }
-    K2_CONFIG_CHECKFORTASKS_COMPLETE = true;
+    return K2SN;
 }
 
 function errorCheckForTasks(data) {
